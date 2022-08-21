@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 export function Projects() {
+  console.log(window.pageYOffset);
+  
   return (
     <ProjectsContainer>
       <ProjectsHeader>
