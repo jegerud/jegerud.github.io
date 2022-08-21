@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { ResetHeaders } from "../helpers/styles-helpers";
 
 export function Home() {
   const contents = [
@@ -98,7 +99,3 @@ const Animated = styled.div`
     }
   }
 `;
-
-function ResetHeaders() {
-  return "margin: 0px;";
-}

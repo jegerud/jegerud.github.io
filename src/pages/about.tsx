@@ -1,31 +1,38 @@
 import React from "react";
 import styled from "styled-components";
+import { ResetHeaders } from "../helpers/styles-helpers";
 
 export function About() {
   return (
     <AboutContainer>
-      <AboutHeader>
-        <InnerHeader>About</InnerHeader>
-        <Content>
-          My name is Kristian Jegerud, and I am {getYearSince()} years old. I am
-          originally from Skotterud in Eidskog, but currently lives in Trondheim
-          for studies. Free time is used for CrossFit, the outdoors and playing
-          the accordion.
-        </Content>
+      <AboutContent>
+        <div>
+          <InnerHeader>What About Me?</InnerHeader>
+          <Content>
+            Based in Trondheim, {getYearSince()} years old, and in my life I
+            combine studying Cybernetics with CrossFit and playing the
+            accordion.
+          </Content>
+          <Content>
+            Interests within most technology, but AI and medical technology,
+            preferably combined, are probably what interests the most.
+          </Content>
+        </div>
         <div>
           <SubHeader>Studies</SubHeader>
           <Content>
-            I have completed a 3-year bachelor's study in computer science at
-            NTNU Gjøvik, giving me a solid basis within web development,
-            mathematics and programming. I'm currently studying Industrial
-            Cybernetics at NTNU, a 2 year master program that gives a solid
-            basis with theoretical and practical knowledge in observing and
-            management of dynamic systems. I have chosen to spread the master
-            program over 3 years, making space for me to dive deeper into
-            subject areas I am interested in.
+            I'm currently studying Industrial Cybernetics at NTNU, a 2 year
+            master program giving me the opportunity to gain knowledgein areas
+            such as dynamic systems, artifical intelligence, medical cybernetics
+            and ultrasound technology.
+          </Content>
+          <Content>
+            From before I have completed a 3-year bachelor's study in computer
+            science at NTNU Gjøvik, creating a solid basis within mathematics
+            and programming.
           </Content>
         </div>
-      </AboutHeader>
+      </AboutContent>
     </AboutContainer>
   );
 }
@@ -34,37 +41,51 @@ const AboutContainer = styled.div`
   scroll-snap-align: start;
   height: 100vh;
   background-color: #8ce06e;
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: auto;
+  grid-template-areas: "AboutContent AboutFun";
 `;
 
-const AboutHeader = styled.header`
+const AboutContent = styled.header`
+  grid-area: AboutContent;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-left: 150px;
-  padding-right: 150px;
+  padding-left: 100px;
+  padding-right: 100px;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-weight: 500;
+`;
+
+const AboutFun = styled.div`
+  grid-area: AboutFun;
 `;
 
 const InnerHeader = styled.h1`
-  font-size: 80px;
+  ${ResetHeaders()}
+  font-size: 60px;
+  margin-bottom: 10px;
 `;
 
 const SubHeader = styled.h2`
+  ${ResetHeaders()}
+  margin-top: 20px;
   font-size: 40px;
 `;
 
 const Content = styled.p`
-  font-size: 16px;
+  font-size: 20px;
 `;
 
 function getYearSince() {
   const birth = new Date("April 3, 1998 17:00:00");
   const current = new Date();
   var since = current.getFullYear() - birth.getFullYear();
-  if (current.getMonth < birth.getMonth) since--;
+  if (current.getMonth() < birth.getMonth()) since--;
   // console.log(current - birth);
   return since;
 }

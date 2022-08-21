@@ -6,7 +6,6 @@ export function Projects() {
     <ProjectsContainer>
       <ProjectsHeader>
         <InnerHeader>Projects</InnerHeader>
-        <SubHeader>Just in case...</SubHeader>
       </ProjectsHeader>
     </ProjectsContainer>
   );
@@ -15,7 +14,7 @@ export function Projects() {
 const ProjectsContainer = styled.div`
   scroll-snap-align: start;
   height: 100vh;
-  background-color: #fbb1ff;
+  background-color: #b1e4ff;
 `;
 
 const ProjectsHeader = styled.header`
