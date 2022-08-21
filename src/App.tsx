@@ -1,15 +1,25 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import { About } from "./pages/about";
+import { Home } from "./pages/home";
+import { Contact } from "./pages/contact";
+import { Projects } from "./pages/projects";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>Welcome!</h2>
-        <p>Nothing to see here...</p>
-      </header>
-    </div>
+    <AppContainer>
+      <Home />
+      <About />
+      <Projects />
+      <Contact />
+    </AppContainer>
   );
 }
+
+const AppContainer = styled.div`
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow: auto;
+`;
 
 export default App;
