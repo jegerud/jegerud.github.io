@@ -14,10 +14,10 @@ export const NavBar = (props: Props) => {
         var total = element.scrollHeight;
         var elementHeight = total / 4;
 
-        if (position === elementHeight * 0) setActive(0);
-        else if (position === elementHeight * 1) setActive(1);
-        else if (position === elementHeight * 2) setActive(2);
-        else if (position === elementHeight * 3) setActive(3);
+        if (position <= elementHeight * 0.7) setActive(0);
+        else if (position >= elementHeight * 0.7 && position < elementHeight * 1.7) setActive(1);
+        else if (position >= elementHeight * 1.7 && position < elementHeight * 2.7) setActive(2);
+        else if (position >= elementHeight * 2.7) setActive(3);
       }
     }, 250);
     return () => clearInterval(interval);

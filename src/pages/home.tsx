@@ -9,6 +9,8 @@ export function Home() {
     "CrossFit enthusiast",
     "Music enthusiast",
     "Outdoors enthusiast",
+    "Liverpool enthusiast",
+    "Formula 1 enthusiast"
   ];
   const [index, setIndex] = useState(0);
   const [content, setContent] = useState(contents[index]);

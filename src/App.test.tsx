@@ -4,12 +4,12 @@ import App from './App';
 
 test('renders welcome header', () => {
   render(<App />);
-  const headerElement = screen.getByText(/Welcome/);
+  const headerElement = screen.getByText(/Hi/);
   expect(headerElement).toBeInTheDocument();
 });
 
 test('renders subtitle', () => {
   render(<App />);
-  const headerElement = screen.getByText(/Nothing to see here.../);
+  const headerElement = screen.getByText(/I'm Kristian/);
   expect(headerElement).toBeInTheDocument();
 });

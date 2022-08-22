@@ -14,22 +14,22 @@ export function About() {
             accordion.
           </Content>
           <Content>
-            Interests within most technology, but AI and medical technology,
-            preferably combined, are probably what interests the most.
+            Interests within most technologies, but AI and medical technology,
+            preferably combined, are what interests me the most.
           </Content>
         </div>
         <div>
           <SubHeader>Studies</SubHeader>
           <Content>
             I'm currently studying Industrial Cybernetics at NTNU, a 2 year
-            master program giving me the opportunity to gain knowledgein areas
-            such as dynamic systems, artifical intelligence, medical cybernetics
-            and ultrasound technology.
+            master program giving me the opportunity to gain knowledge within
+            areas such as dynamic systems, artifical intelligence, medical
+            cybernetics and ultrasound technology.
           </Content>
           <Content>
             From before I have completed a 3-year bachelor's study in computer
-            science at NTNU Gjøvik, creating a solid basis within mathematics
-            and programming.
+            science at NTNU Gjøvik, creating a solid basis for me within
+            mathematics and programming.
           </Content>
         </div>
       </AboutContent>
