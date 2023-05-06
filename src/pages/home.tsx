@@ -33,7 +33,8 @@ export function Home() {
         <TopHeader>Hi,</TopHeader>
         <SubHeader>I'm Kristian,</SubHeader>
         <InnerHeader>
-          <Unanimated>Cybernetics Student and</Unanimated>
+          <Unanimated>Cybernetics Student</Unanimated>
+          <Unanimated>and</Unanimated>
           <Animated>{content}</Animated>
         </InnerHeader>
       </HomeHeader>
@@ -71,15 +72,20 @@ const SubHeader = styled.h2`
 
 const InnerHeader = styled.h3`
   ${ResetHeaders()};
-  font-size: 40px;
+  font-size: 35px;
   display: flex;
   flex-direction: row;
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
 `;
 
-const Unanimated = styled.div``;
+const Unanimated = styled.div`
+  margin-right: 10px;
+`;
 
 const Animated = styled.div`
-  margin-left: 10px;
+  /* margin-left: 10px; */
   margin-right: 10px;
   animation: openclose 2s ease-in-out infinite;
 
