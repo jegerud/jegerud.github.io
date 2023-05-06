@@ -45,6 +45,9 @@ const AboutContainer = styled.div`
   grid-template-columns: 70% 30%;
   grid-template-rows: auto;
   grid-template-areas: "AboutContent AboutFun";
+  @media (max-width: 850px) {
+    grid-template-columns: 99% 1%;
+  }
 `;
 
 const AboutContent = styled.header`
@@ -59,6 +62,10 @@ const AboutContent = styled.header`
   font-size: calc(10px + 2vmin);
   color: white;
   font-weight: 500;
+  @media (max-width: 850px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 `;
 
 const AboutFun = styled.div`
@@ -69,16 +76,26 @@ const InnerHeader = styled.h1`
   ${ResetHeaders()}
   font-size: 60px;
   margin-bottom: 10px;
+  @media (max-width: 850px) {
+    font-size: 40px;
+  }
 `;
 
 const SubHeader = styled.h2`
   ${ResetHeaders()}
   margin-top: 20px;
   font-size: 40px;
+  @media (max-width: 850px) {
+    font-size: 30px;
+    margin-top: 10px;
+  }
 `;
 
 const Content = styled.p`
   font-size: 20px;
+  @media (max-width: 850px) {
+    font-size: 19px;
+  }
 `;
 
 function getYearSince() {
@@ -86,6 +103,5 @@ function getYearSince() {
   const current = new Date();
   var since = current.getFullYear() - birth.getFullYear();
   if (current.getMonth() < birth.getMonth()) since--;
-  // console.log(current - birth);
   return since;
 }

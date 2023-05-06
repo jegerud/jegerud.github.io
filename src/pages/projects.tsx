@@ -2,14 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 export function Projects() {
+  const query = `(max-width: 850px`;
+  const size = query ? "300" : "400";
   return (
     <ProjectsContainer>
       <ProjectsFigure>
         <Figure
           src={require("../images/project-figure.png")}
           alt="Project Figure"
-          width="400"
-          height="400"
+          width={size}
+          height={size}
         ></Figure>
       </ProjectsFigure>
       <ProjectsHeader>
@@ -33,6 +35,15 @@ const ProjectsContainer = styled.div`
   grid-template-columns: 60% 40%;
   grid-template-rows: auto;
   grid-template-areas: "figure header";
+  @media (max-width: 850px) {
+    height: 0vh;
+    min-height: 100vh;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+      "figure" 
+      "header";
+  }
 `;
 
 const ProjectsFigure = styled.div`
@@ -41,6 +52,11 @@ const ProjectsFigure = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 850px) {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+  }
 `;
 
 const Figure = styled.img``;
@@ -56,11 +72,20 @@ const ProjectsHeader = styled.header`
   padding-right: 150px;
   font-size: calc(10px + 2vmin);
   color: white;
+  @media (max-width: 850px) {
+    padding-left: 0px;
+    padding-right: 0px;
+    align-items: center;
+    justify-content: flex-start;
+  }
 `;
 
 const InnerHeader = styled.h1`
   font-size: 80px;
   margin-bottom: -10px;
+  @media (max-width: 850px) {
+    font-size: 60px;
+  }
 `;
 
 const SubHeader = styled.div`
@@ -71,6 +96,11 @@ const SubHeader = styled.div`
   align-items: center;
   justify-content: flex-end;
   width: 500px;
+  @media (max-width: 850px) {
+    width: 50px;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 const ExploreButton = styled.button`
@@ -82,6 +112,10 @@ const ExploreButton = styled.button`
   color: white;
   border: solid 2px white;
   font-weight: 500;
+
+  @media (max-width: 850px) {
+    margin-top: 30px;
+  }
 
   :hover {
     background-color: #ffffff;
@@ -108,4 +142,7 @@ const ExploreButton = styled.button`
 
 const Content = styled.p`
   font-weight: 500;
+  @media (max-width: 850px) {
+    width: 300px;
+  }
 `;

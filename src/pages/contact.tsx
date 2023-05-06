@@ -39,20 +39,33 @@ const ContactHeader = styled.header`
   padding-right: 150px;
   font-size: calc(10px + 2vmin);
   color: white;
+  @media (max-width: 850px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 const InnerHeader = styled.h1`
   font-size: 80px;
   margin-bottom: -10px;
+  @media (max-width: 850px) {
+    font-size: 70px;
+  }
 `;
 
 const SubHeader = styled.h2`
   font-size: 30px;
+  @media (max-width: 850px) {
+    font-size: 30px;
+  }
 `;
 
 const Content = styled.p`
   font-size: 30px;
   font-weight: 500;
+  @media (max-width: 850px) {
+    font-size: 25px;
+  }
 `;
 
 const CustomLink = styled.a`
@@ -64,4 +77,8 @@ const CustomLink = styled.a`
 const Spacer = styled.p`
   margin-top: 10px;
   margin-bottom: 10px;
+  @media (max-width: 850px) {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
 `;

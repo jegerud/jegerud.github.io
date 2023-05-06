@@ -48,6 +48,10 @@ const HomeContainer = styled.div`
   height: 100vh;
   padding-left: 100px;
   padding-right: 100px;
+  @media (max-width: 850px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 const HomeHeader = styled.header`
@@ -63,11 +67,17 @@ const HomeHeader = styled.header`
 const TopHeader = styled.h1`
   ${ResetHeaders()};
   font-size: 80px;
+  @media (max-width: 850px) {
+    font-size: 60px;
+  }
 `;
 
 const SubHeader = styled.h2`
   ${ResetHeaders()};
   font-size: 60px;
+  @media (max-width: 850px) {
+    font-size: 50px;
+  }
 `;
 
 const InnerHeader = styled.h3`
@@ -77,6 +87,7 @@ const InnerHeader = styled.h3`
   flex-direction: row;
   @media (max-width: 1100px) {
     flex-direction: column;
+    font-size: 30px;
   }
 `;
 
