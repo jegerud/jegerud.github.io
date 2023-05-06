@@ -6,10 +6,10 @@ import { Contact } from "./pages/contact";
 import { Projects } from "./pages/projects";
 import { NavBar } from "./components/NavBar";
 
-function App() {
+function App() { 
   return (
     <>
-      <NavBar />
+      <NavBar/>
       <AppContainer id="AppContainer">
         <Home />
         <About />

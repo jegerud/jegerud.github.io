@@ -5,6 +5,16 @@ interface Props {}
 
 export const NavBar = (props: Props) => {
   const [active, setActive] = useState(0);
+  const setScrollPosition = (ref: any) => {
+    const element = document.getElementById('AppContainer');
+    if (element != null){
+      const scrollTo = (element.scrollHeight / 4) * ref;
+      element.scrollTo({
+        top: scrollTo,
+        behavior: "smooth"
+      });
+    }
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,10 +35,10 @@ export const NavBar = (props: Props) => {
 
   return (
     <Topnav>
-      <NavElement active={active === 3}>Contact</NavElement>
-      <NavElement active={active === 2}>Projects</NavElement>
-      <NavElement active={active === 1}>About</NavElement>
-      <NavElement active={active === 0}>Home</NavElement>
+      <NavElement active={active === 3} onClick={() => setScrollPosition(3)}>Contact</NavElement>
+      <NavElement active={active === 2} onClick={() => setScrollPosition(2)}>Projects</NavElement>
+      <NavElement active={active === 1} onClick={() => setScrollPosition(1)}>About</NavElement>
+      <NavElement active={active === 0} onClick={() => setScrollPosition(0)}>Home</NavElement>
     </Topnav>
   );
 };
