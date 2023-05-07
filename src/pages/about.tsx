@@ -65,11 +65,8 @@ const AboutContent = styled.header`
   @media (max-width: 850px) {
     padding-left: 30px;
     padding-right: 30px;
+    margin-top: -20px;
   }
-`;
-
-const AboutFun = styled.div`
-  grid-area: AboutFun;
 `;
 
 const InnerHeader = styled.h1`
@@ -77,7 +74,7 @@ const InnerHeader = styled.h1`
   font-size: 60px;
   margin-bottom: 10px;
   @media (max-width: 850px) {
-    font-size: 40px;
+    font-size: 35px;
   }
 `;
 
@@ -86,15 +83,17 @@ const SubHeader = styled.h2`
   margin-top: 20px;
   font-size: 40px;
   @media (max-width: 850px) {
-    font-size: 30px;
-    margin-top: 10px;
+    font-size: 25px;
+    margin-top: 5px;
   }
 `;
 
 const Content = styled.p`
   font-size: 20px;
   @media (max-width: 850px) {
-    font-size: 19px;
+    font-size: 17px;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 `;
 

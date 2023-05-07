@@ -39,7 +39,7 @@ const ProjectsContainer = styled.div`
     height: 0vh;
     min-height: 100vh;
     grid-template-columns: 100%;
-    grid-template-rows: 50% 50%;
+    grid-template-rows: 52% 48%;
     grid-template-areas: 
       "figure" 
       "header";
@@ -84,7 +84,7 @@ const InnerHeader = styled.h1`
   font-size: 80px;
   margin-bottom: -10px;
   @media (max-width: 850px) {
-    font-size: 60px;
+    font-size: 50px;
   }
 `;
 
@@ -115,6 +115,7 @@ const ExploreButton = styled.button`
 
   @media (max-width: 850px) {
     margin-top: 30px;
+    font-size: 22px;
   }
 
   :hover {
@@ -144,5 +145,9 @@ const Content = styled.p`
   font-weight: 500;
   @media (max-width: 850px) {
     width: 300px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;

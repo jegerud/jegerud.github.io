@@ -46,7 +46,7 @@ const ContactHeader = styled.header`
 `;
 
 const InnerHeader = styled.h1`
-  font-size: 80px;
+  font-size: 90px;
   margin-bottom: -10px;
   @media (max-width: 850px) {
     font-size: 70px;
@@ -54,17 +54,21 @@ const InnerHeader = styled.h1`
 `;
 
 const SubHeader = styled.h2`
-  font-size: 30px;
+  font-size: 40px;
   @media (max-width: 850px) {
-    font-size: 30px;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 `;
 
 const Content = styled.p`
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 500;
   @media (max-width: 850px) {
-    font-size: 25px;
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 `;
 
