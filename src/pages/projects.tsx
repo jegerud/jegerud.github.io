@@ -1,36 +1,36 @@
 import React from "react";
 import styled from "styled-components";
 
-export function Projects() {
+export function Education() {
   const query = `(max-width: 850px`;
   const size = query ? "300" : "400";
   return (
-    <ProjectsContainer>
-      <ProjectsFigure>
+    <EducationContainer>
+      <EducationFigure>
         <Figure
           src={require("../images/project-figure.png")}
           alt="Project Figure"
           width={size}
           height={size}
         ></Figure>
-      </ProjectsFigure>
-      <ProjectsHeader>
-        <InnerHeader>Projects</InnerHeader>
+      </EducationFigure>
+      <EducationHeader>
+        <InnerHeader>Education</InnerHeader>
         <SubHeader>
           <a href="https://github.com/jegerud" target="_blank" rel="noreferrer">
             <ExploreButton>Explore</ExploreButton>
           </a>
-          <Content>my projects on GitHub</Content>
+          <Content>my education on GitHub</Content>
         </SubHeader>
-      </ProjectsHeader>
-    </ProjectsContainer>
+      </EducationHeader>
+    </EducationContainer>
   );
 }
 
-const ProjectsContainer = styled.div`
+const EducationContainer = styled.div`
   scroll-snap-align: start;
   height: 100vh;
-  background-color: #b1e4ff;
+  /* background-color: #b1e4ff; */
   display: grid;
   grid-template-columns: 60% 40%;
   grid-template-rows: auto;
@@ -46,7 +46,7 @@ const ProjectsContainer = styled.div`
   }
 `;
 
-const ProjectsFigure = styled.div`
+const EducationFigure = styled.div`
   grid-area: figure;
   display: flex;
   flex-direction: column;
@@ -61,7 +61,7 @@ const ProjectsFigure = styled.div`
 
 const Figure = styled.img``;
 
-const ProjectsHeader = styled.header`
+const EducationHeader = styled.header`
   grid-area: header;
   min-height: 100vh;
   display: flex;

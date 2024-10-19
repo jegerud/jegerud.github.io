@@ -15,17 +15,17 @@ export function Home() {
   const [index, setIndex] = useState(0);
   const [content, setContent] = useState(contents[index]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      var newIndex = index;
-      newIndex++;
-      if (newIndex > contents.length - 1) newIndex = 0;
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     var newIndex = index;
+  //     newIndex++;
+  //     if (newIndex > contents.length - 1) newIndex = 0;
 
-      setIndex(newIndex);
-      setContent(contents[newIndex]);
-    }, 2000);
-    return () => clearInterval(interval);
-  });
+  //     setIndex(newIndex);
+  //     setContent(contents[newIndex]);
+  //   }, 2000);
+  //   return () => clearInterval(interval);
+  // });
 
   return (
     <HomeContainer>
@@ -33,9 +33,7 @@ export function Home() {
         <TopHeader>Hi,</TopHeader>
         <SubHeader>I'm Kristian,</SubHeader>
         <InnerHeader>
-          <Unanimated>Cybernetics Student</Unanimated>
-          <Unanimated>and</Unanimated>
-          <Animated>{content}</Animated>
+          <Unanimated>A tech enthusiast</Unanimated>
         </InnerHeader>
       </HomeHeader>
     </HomeContainer>
@@ -43,11 +41,10 @@ export function Home() {
 }
 
 const HomeContainer = styled.div`
-  background-color: #f95f46;
   scroll-snap-align: start;
-  height: 100vh;
-  padding-left: 100px;
-  padding-right: 100px;
+  /* height: 100vh;
+  padding-left: 50px;
+  padding-right: 100px; */
   @media (max-width: 850px) {
     padding-left: 20px;
     padding-right: 20px;
@@ -61,12 +58,12 @@ const HomeHeader = styled.header`
   align-items: flex-start;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 `;
 
 const TopHeader = styled.h1`
   ${ResetHeaders()};
   font-size: 80px;
+  font-family: courier new;
   @media (max-width: 850px) {
     font-size: 60px;
   }
@@ -75,6 +72,8 @@ const TopHeader = styled.h1`
 const SubHeader = styled.h2`
   ${ResetHeaders()};
   font-size: 60px;
+  font-family: courier new;
+  font-weight: 100;
   @media (max-width: 850px) {
     font-size: 50px;
   }
@@ -83,6 +82,8 @@ const SubHeader = styled.h2`
 const InnerHeader = styled.h3`
   ${ResetHeaders()};
   font-size: 35px;
+  font-family: courier new;
+  font-weight: 100;
   display: flex;
   flex-direction: row;
   @media (max-width: 1100px) {
@@ -93,14 +94,15 @@ const InnerHeader = styled.h3`
 
 const Unanimated = styled.div`
   margin-right: 10px;
+  font-weight: 100;
 `;
 
 const Animated = styled.div`
   /* margin-left: 10px; */
   margin-right: 10px;
-  animation: openclose 2s ease-in-out infinite;
+  /* animation: openclose 2s ease-in-out infinite; */
 
-  @keyframes openclose {
+  /* @keyframes openclose {
     0% {
       opacity: 0;
     }
@@ -116,5 +118,5 @@ const Animated = styled.div`
     100% {
       opacity: 0.1;
     }
-  }
+  } */
 `;

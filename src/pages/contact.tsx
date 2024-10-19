@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { InnerHeader } from "./styledComponents/headers";
 
 export function Contact() {
   return (
@@ -9,13 +10,13 @@ export function Contact() {
         <SubHeader>Just in case...</SubHeader>
         <Content>
           Head over to my 
-          <CustomLink href="https://www.linkedin.com/in/kristian-jegerud-bab1781a0/">
+          <CustomLink href="https://www.linkedin.com/in/kristian-jegerud-bab1781a0/" target="_blank">
             LinkedIn Profile
           </CustomLink>
           <Spacer>or</Spacer> 
-          feel free to send a message on 
-          <CustomLink href="https://twitter.com/KJegerud">
-            Twitter
+          feel free to stay in touch on 
+          <CustomLink href="https://www.threads.net/@jegerud98" target="_blank">
+            Threads
           </CustomLink>
         </Content>
       </ContactHeader>
@@ -26,7 +27,7 @@ export function Contact() {
 const ContactContainer = styled.div`
   scroll-snap-align: start;
   height: 100vh;
-  background-color: #6ee0b2;
+  /* background-color: #6ee0b2; */
 `;
 
 const ContactHeader = styled.header`
@@ -35,26 +36,19 @@ const ContactHeader = styled.header`
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-left: 150px;
-  padding-right: 150px;
+  /* padding-left: 150px;
+  padding-right: 150px; */
   font-size: calc(10px + 2vmin);
-  color: white;
   @media (max-width: 850px) {
     padding-left: 20px;
     padding-right: 20px;
   }
 `;
 
-const InnerHeader = styled.h1`
-  font-size: 90px;
-  margin-bottom: -10px;
-  @media (max-width: 850px) {
-    font-size: 70px;
-  }
-`;
 
 const SubHeader = styled.h2`
-  font-size: 40px;
+  font-size: 30px;
+  font-weight: 100;
   @media (max-width: 850px) {
     font-size: 28px;
     margin-top: 20px;
@@ -63,7 +57,7 @@ const SubHeader = styled.h2`
 `;
 
 const Content = styled.p`
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 500;
   @media (max-width: 850px) {
     font-size: 22px;
@@ -75,7 +69,7 @@ const Content = styled.p`
 const CustomLink = styled.a`
   margin-left: 10px;
   margin-right: 10px;
-  color: white;
+  color: black;
 `;
 
 const Spacer = styled.p`

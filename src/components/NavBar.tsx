@@ -35,36 +35,36 @@ export const NavBar = (props: Props) => {
 
   return (
     <Topnav>
-      <NavElement active={active === 3} onClick={() => setScrollPosition(3)}>Contact</NavElement>
-      <NavElement active={active === 2} onClick={() => setScrollPosition(2)}>Projects</NavElement>
-      <NavElement active={active === 1} onClick={() => setScrollPosition(1)}>About</NavElement>
       <NavElement active={active === 0} onClick={() => setScrollPosition(0)}>Home</NavElement>
+      <NavElement active={active === 1} onClick={() => setScrollPosition(1)}>About</NavElement>
+      <NavElement active={active === 2} onClick={() => setScrollPosition(2)}>Education</NavElement>
+      <NavElement active={active === 3} onClick={() => setScrollPosition(3)}>Contact</NavElement>
     </Topnav>
   );
 };
 
 const Topnav = styled.div`
-  grid-area: topnav;
+  display: flex;
   background-color: transparent;
   overflow: visible;
-  position: fixed;
+  flex-direction: column;
+  justify-content: center;
   top: 0;
-  width: 100%;
+  width: auto;
 `;
 
 const NavElement = styled.button.attrs((props: { active: boolean }) => props)`
-  float: right;
-  color: #f2f2f2;
+  float: left;
   background-color: transparent;
   border: none;
-  text-align: center;
+  text-align: left;
+  font-family: courier new;
   padding: 14px 16px;
   margin-left: 5px;
   margin-right: 5px;
-  text-decoration: none;
   font-weight: ${(props) => (props.active ? 900 : 100)};
   font-size: 17px;
-
+  text-decoration: ${(props) => (props.active ? "underline" : "none")};
   :hover {
     cursor: pointer;
     transform: scale(1.1);
