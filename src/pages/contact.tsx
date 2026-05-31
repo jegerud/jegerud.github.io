@@ -11,7 +11,7 @@ export function Contact() {
         <Content>
           Feel free to add me on 
           <CustomLink href="https://www.linkedin.com/in/kristian-jegerud-bab1781a0/" target="_blank">
-            LinkedIn Profile
+            LinkedIn
           </CustomLink>
           if you want to get in touch, or just want to say hi!          
         </Content>
