@@ -113,19 +113,19 @@ const EducationGrid = styled.div`
 `;
 
 const EducationCard = styled.div`
-  background-color: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: ${props => props.theme.cardBackground};
+  border: 1px solid ${props => props.theme.cardBorder};
   border-radius: 8px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px ${props => props.theme.cardShadow};
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px ${props => props.theme.cardShadowHover};
   }
 
   @media (max-width: 850px) {
@@ -148,7 +148,7 @@ const Degree = styled.h4`
   font-weight: 500;
   margin: 0;
   font-family: courier new;
-  color: rgba(0, 0, 0, 0.8);
+  opacity: 0.8;
   @media (max-width: 850px) {
     font-size: 16px;
   }
@@ -159,7 +159,7 @@ const Field = styled.p`
   font-weight: 500;
   margin: 0;
   font-family: courier new;
-  color: rgba(0, 0, 0, 0.7);
+  opacity: 0.7;
   @media (max-width: 850px) {
     font-size: 15px;
   }
@@ -170,7 +170,7 @@ const DateRange = styled.p`
   font-weight: 400;
   margin: 0;
   font-family: courier new;
-  color: rgba(0, 0, 0, 0.6);
+  opacity: 0.6;
   font-style: italic;
   @media (max-width: 850px) {
     font-size: 13px;
@@ -180,13 +180,14 @@ const DateRange = styled.p`
 const ProgramLink = styled.a`
   font-size: 14px;
   font-family: courier new;
-  color: rgba(0, 0, 0, 0.7);
+  color: ${props => props.theme.linkColor};
   text-decoration: underline;
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
+  opacity: 0.7;
 
   &:hover {
-    color: rgba(0, 0, 0, 1);
+    opacity: 1;
   }
 
   @media (max-width: 850px) {

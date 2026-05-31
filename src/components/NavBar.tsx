@@ -61,12 +61,14 @@ const NavElement = styled.button.attrs((props: { active: boolean }) => props)`
   border: none;
   text-align: left;
   font-family: courier new;
+  color: ${props => props.theme.text};
   padding: 14px 16px;
   margin-left: 5px;
   margin-right: 5px;
   font-weight: ${(props) => (props.active ? 900 : 100)};
   font-size: 17px;
   text-decoration: ${(props) => (props.active ? "underline" : "none")};
+  transition: transform 0.2s ease;
   :hover {
     cursor: pointer;
     transform: scale(1.1);

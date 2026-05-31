@@ -65,7 +65,7 @@ const Content = styled.p`
 const CustomLink = styled.a`
   margin-left: 10px;
   margin-right: 10px;
-  color: black;
+  color: ${props => props.theme.linkColor};
 `;
 
 const Spacer = styled.p`
