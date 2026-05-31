@@ -5,6 +5,7 @@ import { Home } from "./pages/home";
 import { Contact } from "./pages/contact";
 import { Education } from "./pages/education";
 import { WorkExperience } from "./pages/work-experience";
+import { Projects } from "./pages/projects";
 import { NavBar } from "./components/NavBar";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { lightTheme, darkTheme } from "./theme";
@@ -29,6 +30,7 @@ function App() {
           <About />
           <WorkExperience />
           <Education />
+          <Projects />
           <Contact />
         </AppContainer>
       </Container>

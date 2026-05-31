@@ -8,7 +8,7 @@ export const NavBar = (props: Props) => {
   const setScrollPosition = (ref: any) => {
     const element = document.getElementById('AppContainer');
     if (element != null){
-      const scrollTo = (element.scrollHeight / 5) * ref;
+      const scrollTo = (element.scrollHeight / 6) * ref;
       element.scrollTo({
         top: scrollTo,
         behavior: "smooth"
@@ -22,13 +22,14 @@ export const NavBar = (props: Props) => {
       if (element != null) {
         var position = element.scrollTop;
         var total = element.scrollHeight;
-        var elementHeight = total / 5;
+        var elementHeight = total / 6;
 
         if (position <= elementHeight * 0.7) setActive(0);
         else if (position >= elementHeight * 0.7 && position < elementHeight * 1.7) setActive(1);
         else if (position >= elementHeight * 1.7 && position < elementHeight * 2.7) setActive(2);
         else if (position >= elementHeight * 2.7 && position < elementHeight * 3.7) setActive(3);
-        else if (position >= elementHeight * 3.7) setActive(4);
+        else if (position >= elementHeight * 3.7 && position < elementHeight * 4.7) setActive(4);
+        else if (position >= elementHeight * 4.7) setActive(5);
       }
     }, 250);
     return () => clearInterval(interval);
@@ -40,7 +41,8 @@ export const NavBar = (props: Props) => {
       <NavElement active={active === 1} onClick={() => setScrollPosition(1)}>About</NavElement>
       <NavElement active={active === 2} onClick={() => setScrollPosition(2)}>Work</NavElement>
       <NavElement active={active === 3} onClick={() => setScrollPosition(3)}>Education</NavElement>
-      <NavElement active={active === 4} onClick={() => setScrollPosition(4)}>Contact</NavElement>
+      <NavElement active={active === 4} onClick={() => setScrollPosition(4)}>Projects</NavElement>
+      <NavElement active={active === 5} onClick={() => setScrollPosition(5)}>Contact</NavElement>
     </Topnav>
   );
 };
