@@ -9,15 +9,11 @@ export function Contact() {
         <InnerHeader>Contact</InnerHeader>
         <SubHeader>Just in case...</SubHeader>
         <Content>
-          Head over to my 
+          Feel free to add me on 
           <CustomLink href="https://www.linkedin.com/in/kristian-jegerud-bab1781a0/" target="_blank">
             LinkedIn Profile
           </CustomLink>
-          <Spacer>or</Spacer> 
-          feel free to stay in touch on 
-          <CustomLink href="https://www.threads.net/@jegerud98" target="_blank">
-            Threads
-          </CustomLink>
+          if you want to get in touch, or just want to say hi!          
         </Content>
       </ContactHeader>
     </ContactContainer>

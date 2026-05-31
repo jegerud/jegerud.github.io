@@ -4,6 +4,7 @@ import { About } from "./pages/about";
 import { Home } from "./pages/home";
 import { Contact } from "./pages/contact";
 import { Education } from "./pages/education";
+import { WorkExperience } from "./pages/work-experience";
 import { NavBar } from "./components/NavBar";
 
 function App() { 
@@ -13,6 +14,7 @@ function App() {
       <AppContainer id="AppContainer">
         <Home />
         <About />
+        <WorkExperience />
         <Education />
         <Contact />
       </AppContainer>

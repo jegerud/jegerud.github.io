@@ -16,7 +16,7 @@ export function About() {
           </Content>
           <Content>
             Interests within most technologies, but back end development and 
-            data science, are what interests me the most.
+            data science are what interests me the most.
           </Content>
         </div>
         <div>
@@ -26,8 +26,11 @@ export function About() {
             tech graduate. Here, I received a thorough introduction to how 
             Intility keeps its applications running during a 3-month period 
             in Application Operations. After this period, I moved over to 
-            development, where I am now working with data and backend development 
-            for internal systems at Intility.
+            development, where I then worked with data and backend development 
+            for internal systems at Intility. After 1.5 years at Intility, I 
+            started working at Netcompany as a consultant, where I am currently 
+            working with development on internal systems for the customer 
+            The Norwegian Medical Products Agency.
           </Content>
           <Content>
             During my studies, I worked part-time as a teaching assistant in 
