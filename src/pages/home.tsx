@@ -123,7 +123,7 @@ const TypingText = styled.div`
 const Cursor = styled.span`
   display: inline-block;
   width: 3px;
-  background-color: black;
+  background-color: ${props => props.theme.text};
   margin-left: 2px;
   animation: blink 1s infinite;
 

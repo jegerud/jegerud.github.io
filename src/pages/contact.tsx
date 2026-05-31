@@ -11,7 +11,7 @@ export function Contact() {
         <Content>
           Feel free to add me on 
           <CustomLink href="https://www.linkedin.com/in/kristian-jegerud-bab1781a0/" target="_blank">
-            LinkedIn Profile
+            LinkedIn
           </CustomLink>
           if you want to get in touch, or just want to say hi!          
         </Content>
@@ -65,7 +65,7 @@ const Content = styled.p`
 const CustomLink = styled.a`
   margin-left: 10px;
   margin-right: 10px;
-  color: black;
+  color: ${props => props.theme.linkColor};
 `;
 
 const Spacer = styled.p`

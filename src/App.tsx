@@ -1,33 +1,48 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useEffect, useState } from "react";
+import styled, { ThemeProvider } from "styled-components";
 import { About } from "./pages/about";
 import { Home } from "./pages/home";
 import { Contact } from "./pages/contact";
 import { Education } from "./pages/education";
 import { WorkExperience } from "./pages/work-experience";
 import { NavBar } from "./components/NavBar";
+import { ThemeToggle } from "./components/ThemeToggle";
+import { lightTheme, darkTheme } from "./theme";
 
-function App() { 
+function App() {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = sessionStorage.getItem('darkMode');
+    return saved === 'true';
+  });
+
+  useEffect(() => {
+    sessionStorage.setItem('darkMode', String(isDarkMode));
+  }, [isDarkMode]);
+
   return (
-    <Container>
-      <NavBar/>
-      <AppContainer id="AppContainer">
-        <Home />
-        <About />
-        <WorkExperience />
-        <Education />
-        <Contact />
-      </AppContainer>
-    </Container>
+    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+      <Container>
+        <ThemeToggle isDarkMode={isDarkMode} toggleTheme={() => setIsDarkMode(!isDarkMode)} />
+        <NavBar/>
+        <AppContainer id="AppContainer">
+          <Home />
+          <About />
+          <WorkExperience />
+          <Education />
+          <Contact />
+        </AppContainer>
+      </Container>
+    </ThemeProvider>
   );
 }
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  background-color: #ecdbc7;
-  color: black;
+  background-color: ${props => props.theme.background};
+  color: ${props => props.theme.text};
   font-family: courier new;
+  transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
 const AppContainer = styled.div`
