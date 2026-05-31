@@ -2,30 +2,49 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ResetHeaders } from "../helpers/styles-helpers";
 
+const roles = [
+  "Consultant",
+  "Tech Enthusiast",
+  "Problem Solver",
+  "Sports enthusiast",
+  "Accordion Player"
+];
+
 export function Home() {
-  const contents = [
-    "AI enthusiast",
-    "Medical Science enthusiast",
-    "CrossFit enthusiast",
-    "Music enthusiast",
-    "Outdoors enthusiast",
-    "Liverpool enthusiast",
-    "Formula 1 enthusiast"
-  ];
-  const [index, setIndex] = useState(0);
-  const [content, setContent] = useState(contents[index]);
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [typingSpeed, setTypingSpeed] = useState(100);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     var newIndex = index;
-  //     newIndex++;
-  //     if (newIndex > contents.length - 1) newIndex = 0;
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
 
-  //     setIndex(newIndex);
-  //     setContent(contents[newIndex]);
-  //   }, 2000);
-  //   return () => clearInterval(interval);
-  // });
+    const handleTyping = () => {
+      if (!isDeleting) {
+        // Typing forward
+        if (displayedText.length < currentRole.length) {
+          setDisplayedText(currentRole.substring(0, displayedText.length + 1));
+          setTypingSpeed(100);
+        } else {
+          // Finished typing, wait then start deleting
+          setTimeout(() => setIsDeleting(true), 2000);
+        }
+      } else {
+        // Deleting
+        if (displayedText.length > 0) {
+          setDisplayedText(currentRole.substring(0, displayedText.length - 1));
+          setTypingSpeed(50);
+        } else {
+          // Finished deleting, move to next role
+          setIsDeleting(false);
+          setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, roleIndex, typingSpeed]);
 
   return (
     <HomeContainer>
@@ -33,7 +52,10 @@ export function Home() {
         <TopHeader>Hi,</TopHeader>
         <SubHeader>I'm Kristian,</SubHeader>
         <InnerHeader>
-          <Unanimated>A tech enthusiast</Unanimated>
+          <TypingText>
+            {displayedText}
+            <Cursor>|</Cursor>
+          </TypingText>
         </InnerHeader>
       </HomeHeader>
     </HomeContainer>
@@ -92,31 +114,25 @@ const InnerHeader = styled.h3`
   }
 `;
 
-const Unanimated = styled.div`
-  margin-right: 10px;
+const TypingText = styled.div`
   font-weight: 100;
+  display: inline-flex;
+  align-items: center;
 `;
 
-const Animated = styled.div`
-  /* margin-left: 10px; */
-  margin-right: 10px;
-  /* animation: openclose 2s ease-in-out infinite; */
+const Cursor = styled.span`
+  display: inline-block;
+  width: 3px;
+  background-color: black;
+  margin-left: 2px;
+  animation: blink 1s infinite;
 
-  /* @keyframes openclose {
-    0% {
-      opacity: 0;
-    }
-    20% {
-      opacity: 0.7;
-    }
-    60% {
+  @keyframes blink {
+    0%, 50% {
       opacity: 1;
     }
-    95% {
-      opacity: 0.9;
+    51%, 100% {
+      opacity: 0;
     }
-    100% {
-      opacity: 0.1;
-    }
-  } */
+  }
 `;
