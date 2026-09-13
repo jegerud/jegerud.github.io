@@ -12,10 +12,21 @@ export function useCarouselIndex(ref: RefObject<HTMLDivElement>, count: number) 
       if (frame != null) return;
       frame = requestAnimationFrame(() => {
         frame = null;
-        const width = element.clientWidth;
-        if (width === 0) return;
-        const index = Math.round(element.scrollLeft / width);
-        setActiveIndex(Math.min(Math.max(index, 0), count - 1));
+        const children = Array.from(element.children) as HTMLElement[];
+        if (children.length === 0) return;
+        const viewportCenter = element.scrollLeft + element.clientWidth / 2;
+
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+        children.forEach((child, index) => {
+          const childCenter = child.offsetLeft + child.offsetWidth / 2;
+          const distance = Math.abs(childCenter - viewportCenter);
+          if (distance < closestDistance) {
+            closestDistance = distance;
+            closestIndex = index;
+          }
+        });
+        setActiveIndex(closestIndex);
       });
     };
 
@@ -28,8 +39,10 @@ export function useCarouselIndex(ref: RefObject<HTMLDivElement>, count: number) 
 
   const scrollToIndex = (index: number) => {
     const element = ref.current;
-    if (element == null) return;
-    element.scrollTo({ left: element.clientWidth * index, behavior: "smooth" });
+    const child = element?.children[index] as HTMLElement | undefined;
+    if (element == null || child == null) return;
+    const target = child.offsetLeft + child.offsetWidth / 2 - element.clientWidth / 2;
+    element.scrollTo({ left: target, behavior: "smooth" });
   };
 
   return { activeIndex, scrollToIndex };
