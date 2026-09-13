@@ -24,6 +24,10 @@ const ContactContainer = styled.div`
   scroll-snap-align: start;
   height: 100vh;
   /* background-color: #6ee0b2; */
+  @media (max-width: 850px) {
+    height: calc(100vh - 50px);
+    overflow: hidden;
+  }
 `;
 
 const ContactHeader = styled.header`
@@ -36,6 +40,7 @@ const ContactHeader = styled.header`
   padding-right: 150px; */
   font-size: calc(10px + 2vmin);
   @media (max-width: 850px) {
+    min-height: calc(100vh - 50px);
     padding-left: 20px;
     padding-right: 20px;
   }

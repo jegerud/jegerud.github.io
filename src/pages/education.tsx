@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { InnerHeader } from "./styledComponents/headers";
+import { CarouselDots } from "./styledComponents/carouselDots";
+import { useCarouselIndex } from "../helpers/useCarouselIndex";
 
 interface Education {
   institution: string;
@@ -49,33 +51,39 @@ export function Education() {
     return `${edu.startDate.year} - ${edu.endDate.year}`;
   };
 
+  const gridRef = useRef<HTMLDivElement>(null);
+  const { activeIndex, scrollToIndex } = useCarouselIndex(gridRef, educations.length);
+
   return (
     <EducationContainer>
       <EducationHeader>
         <InnerHeader>Education</InnerHeader>
       </EducationHeader>
-      <EducationGrid>
-        {educations.map((edu, index) => (
-          <EducationCard key={`${edu.institution}-${index}`}>
-            <Institution>{edu.institution}</Institution>
-            <Degree>{edu.degree}</Degree>
-            <Field>{edu.field}</Field>
-            <DateRange>{formatDateRange(edu)}</DateRange>
-            {edu.url && (
-              <ProgramLink href={edu.url} target="_blank" rel="noopener noreferrer">
-                View Program →
-              </ProgramLink>
-            )}
-            <HighlightsSection>
-              <HighlightsList>
-                {edu.highlights.map((highlight, idx) => (
-                  <HighlightItem key={idx}>{highlight}</HighlightItem>
-                ))}
-              </HighlightsList>
-            </HighlightsSection>
-          </EducationCard>
-        ))}
-      </EducationGrid>
+      <CarouselSection>
+        <EducationGrid ref={gridRef}>
+          {educations.map((edu, index) => (
+            <EducationCard key={`${edu.institution}-${index}`}>
+              <Institution>{edu.institution}</Institution>
+              <Degree>{edu.degree}</Degree>
+              <Field>{edu.field}</Field>
+              <DateRange>{formatDateRange(edu)}</DateRange>
+              {edu.url && (
+                <ProgramLink href={edu.url} target="_blank" rel="noopener noreferrer">
+                  View Program →
+                </ProgramLink>
+              )}
+              <HighlightsSection>
+                <HighlightsList>
+                  {edu.highlights.map((highlight, idx) => (
+                    <HighlightItem key={idx}>{highlight}</HighlightItem>
+                  ))}
+                </HighlightsList>
+              </HighlightsSection>
+            </EducationCard>
+          ))}
+        </EducationGrid>
+        <CarouselDots count={educations.length} activeIndex={activeIndex} onDotClick={scrollToIndex} />
+      </CarouselSection>
     </EducationContainer>
   );
 }
@@ -88,8 +96,8 @@ const EducationContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   @media (max-width: 850px) {
-    padding-left: 30px;
-    padding-right: 30px;
+    height: calc(100vh - 50px);
+    overflow: hidden;
   }
 `;
 
@@ -97,6 +105,17 @@ const EducationHeader = styled.div`
   margin-bottom: 30px;
   @media (max-width: 850px) {
     margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+`;
+
+const CarouselSection = styled.div`
+  display: contents;
+  @media (max-width: 850px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 `;
 
@@ -107,8 +126,22 @@ const EducationGrid = styled.div`
   max-width: 1200px;
   width: 100%;
   @media (max-width: 850px) {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 0 0 auto;
+    height: 52vh;
+    gap: 16px;
+    padding: 0 8%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 
@@ -129,6 +162,9 @@ const EducationCard = styled.div`
   }
 
   @media (max-width: 850px) {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
+    overflow-y: auto;
     padding: 15px;
   }
 `;
