@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { InnerHeader } from "./styledComponents/headers";
+import { CarouselDots } from "./styledComponents/carouselDots";
+import { useCarouselIndex } from "../helpers/useCarouselIndex";
 
 interface WorkExperience {
   company: string;
@@ -69,32 +71,38 @@ export function WorkExperience() {
     return `${start} - ${end}`;
   };
 
+  const gridRef = useRef<HTMLDivElement>(null);
+  const { activeIndex, scrollToIndex } = useCarouselIndex(gridRef, experiences.length);
+
   return (
     <WorkContainer>
       <WorkHeader>
         <InnerHeader>Work Experience</InnerHeader>
       </WorkHeader>
-      <ExperienceGrid>
-        {experiences.map((exp, index) => (
-          <ExperienceCard key={`${exp.company}-${index}`}>
-            <Company>{exp.company}</Company>
-            <Position>{exp.position}</Position>
-            <DateRange>{formatDateRange(exp)}</DateRange>
-            <TechSection>
-              {exp.technologies.map((tech, idx) => (
-                <TechBadge key={idx}>{tech}</TechBadge>
-              ))}
-            </TechSection>
-            <ResponsibilitiesSection>
-              <ResponsibilitiesList>
-                {exp.responsibilities.map((resp, idx) => (
-                  <ResponsibilityItem key={idx}>{resp}</ResponsibilityItem>
+      <CarouselSection>
+        <ExperienceGrid ref={gridRef}>
+          {experiences.map((exp, index) => (
+            <ExperienceCard key={`${exp.company}-${index}`}>
+              <Company>{exp.company}</Company>
+              <Position>{exp.position}</Position>
+              <DateRange>{formatDateRange(exp)}</DateRange>
+              <TechSection>
+                {exp.technologies.map((tech, idx) => (
+                  <TechBadge key={idx}>{tech}</TechBadge>
                 ))}
-              </ResponsibilitiesList>
-            </ResponsibilitiesSection>
-          </ExperienceCard>
-        ))}
-      </ExperienceGrid>
+              </TechSection>
+              <ResponsibilitiesSection>
+                <ResponsibilitiesList>
+                  {exp.responsibilities.map((resp, idx) => (
+                    <ResponsibilityItem key={idx}>{resp}</ResponsibilityItem>
+                  ))}
+                </ResponsibilitiesList>
+              </ResponsibilitiesSection>
+            </ExperienceCard>
+          ))}
+        </ExperienceGrid>
+        <CarouselDots count={experiences.length} activeIndex={activeIndex} onDotClick={scrollToIndex} />
+      </CarouselSection>
     </WorkContainer>
   );
 }
@@ -108,8 +116,6 @@ const WorkContainer = styled.div`
   justify-content: center;
   @media (max-width: 850px) {
     height: calc(100vh - 50px);
-    padding-left: 30px;
-    padding-right: 30px;
     overflow: hidden;
   }
 `;
@@ -118,6 +124,17 @@ const WorkHeader = styled.div`
   margin-bottom: 30px;
   @media (max-width: 850px) {
     margin-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+`;
+
+const CarouselSection = styled.div`
+  display: contents;
+  @media (max-width: 850px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 `;
 
@@ -128,8 +145,22 @@ const ExperienceGrid = styled.div`
   max-width: 1200px;
   width: 100%;
   @media (max-width: 850px) {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex: 0 0 auto;
+    height: 52vh;
+    gap: 16px;
+    padding: 0 8%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `;
 
@@ -150,7 +181,10 @@ const ExperienceCard = styled.div`
   }
 
   @media (max-width: 850px) {
+    flex: 0 0 84%;
+    scroll-snap-align: center;
     padding: 15px;
+    overflow-y: auto;
   }
 `;
 
