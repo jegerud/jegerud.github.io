@@ -39,10 +39,10 @@ const ToggleButton = styled.button<{ isDarkMode: boolean }>`
   }
 
   @media (max-width: 850px) {
-    width: 32px;
-    height: 32px;
-    font-size: 16px;
-    top: 9px;
-    right: 15px;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    top: 60px;
+    right: 10px;
   }
 `;

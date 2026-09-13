@@ -59,15 +59,15 @@ const Topnav = styled.div`
   @media (max-width: 850px) {
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     width: 100%;
     height: 50px;
     flex-shrink: 0;
     overflow-x: auto;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    padding: 0 60px 0 15px;
-    gap: 4px;
+    padding: 0 15px;
+    gap: 0;
     border-bottom: 1px solid ${props => props.theme.cardBorder};
   }
 `;
@@ -94,8 +94,8 @@ const NavElement = styled.button.attrs((props: { active: boolean }) => props)`
   @media (max-width: 850px) {
     flex: 0 0 auto;
     white-space: nowrap;
-    padding: 8px 10px;
+    padding: 6px 6px;
     margin: 0;
-    font-size: 14px;
+    font-size: 12px;
   }
 `;
