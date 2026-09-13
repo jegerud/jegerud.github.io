@@ -12,25 +12,17 @@ export function About() {
           <Content>
             Based in Oslo, {getYearSince()} years old, and in my life I
             combine working in tech with training, spending time outdoors and 
-            playing the accordion.
-          </Content>
-          <Content>
-            Interests within most technologies, but back end development and 
-            data science are what interests me the most.
+            playing the accordion. Interests within most technologies,
+            but back end development and architecture are what interests me the most.
           </Content>
         </div>
         <div>
           <SubHeader>Work</SubHeader>
           <Content>
-            After completing my studies, I started working at Intility as a 
-            tech graduate. Here, I received a thorough introduction to how 
-            Intility keeps its applications running during a 3-month period 
-            in Application Operations. After this period, I moved over to 
-            development, where I then worked with data and backend development 
-            for internal systems at Intility. After 1.5 years at Intility, I 
-            started working at Netcompany as a consultant, where I am currently 
-            working with development on internal systems for the customer 
-            The Norwegian Medical Products Agency.
+            I began my career as a Tech Graduate at Intility, focusing on backend 
+            systems, data, and application operations. I am now a Consultant at 
+            Netcompany, currently developing internal software solutions for 
+            the Norwegian Medical Products Agency.
           </Content>
           <Content>
             During my studies, I worked part-time as a teaching assistant in 
