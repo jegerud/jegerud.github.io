@@ -80,6 +80,10 @@ const HomeHeader = styled.header`
   align-items: flex-start;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+
+  @media (max-width: 850px) {
+    min-height: calc(100vh - 50px);
+  }
 `;
 
 const TopHeader = styled.h1`

@@ -45,6 +45,10 @@ const Container = styled.div`
   color: ${props => props.theme.text};
   font-family: courier new;
   transition: background-color 0.3s ease, color 0.3s ease;
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+  }
 `;
 
 const AppContainer = styled.div`
@@ -54,6 +58,12 @@ const AppContainer = styled.div`
   height: 100vh;
   padding-left: 50px;
   padding-right: 100px;
+
+  @media (max-width: 850px) {
+    height: calc(100vh - 50px);
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 `;
 
 export default App;

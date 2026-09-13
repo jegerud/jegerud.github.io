@@ -55,6 +55,21 @@ const Topnav = styled.div`
   justify-content: center;
   top: 0;
   width: auto;
+
+  @media (max-width: 850px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 50px;
+    flex-shrink: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 60px 0 15px;
+    gap: 4px;
+    border-bottom: 1px solid ${props => props.theme.cardBorder};
+  }
 `;
 
 const NavElement = styled.button.attrs((props: { active: boolean }) => props)`
@@ -74,5 +89,13 @@ const NavElement = styled.button.attrs((props: { active: boolean }) => props)`
   :hover {
     cursor: pointer;
     transform: scale(1.1);
+  }
+
+  @media (max-width: 850px) {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 8px 10px;
+    margin: 0;
+    font-size: 14px;
   }
 `;

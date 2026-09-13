@@ -50,6 +50,7 @@ const ProjectsContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   @media (max-width: 850px) {
+    height: calc(100vh - 50px);
     padding-left: 30px;
     padding-right: 30px;
   }
