@@ -42,7 +42,7 @@ const ToggleButton = styled.button<{ isDarkMode: boolean }>`
     width: 32px;
     height: 32px;
     font-size: 16px;
-    top: 15px;
+    top: 9px;
     right: 15px;
   }
 `;
