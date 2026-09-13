@@ -26,6 +26,7 @@ const ContactContainer = styled.div`
   /* background-color: #6ee0b2; */
   @media (max-width: 850px) {
     height: calc(100vh - 50px);
+    overflow: hidden;
   }
 `;
 

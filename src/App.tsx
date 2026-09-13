@@ -61,8 +61,8 @@ const AppContainer = styled.div`
 
   @media (max-width: 850px) {
     height: calc(100vh - 50px);
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 

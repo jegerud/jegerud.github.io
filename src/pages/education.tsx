@@ -91,6 +91,7 @@ const EducationContainer = styled.div`
     height: calc(100vh - 50px);
     padding-left: 30px;
     padding-right: 30px;
+    overflow: hidden;
   }
 `;
 

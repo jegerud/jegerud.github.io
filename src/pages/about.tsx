@@ -47,6 +47,7 @@ const AboutContainer = styled.div`
   @media (max-width: 850px) {
     grid-template-columns: 99% 1%;
     height: calc(100vh - 50px);
+    overflow: hidden;
   }
 `;
 

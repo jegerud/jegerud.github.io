@@ -6,7 +6,8 @@ export const InnerHeader = styled.h1`
   font-size: 60px;
   margin-bottom: 10px;
   @media (max-width: 850px) {
-    font-size: 35px;
+    font-size: 28px;
+    margin-bottom: 6px;
   }
 `;
 
@@ -15,7 +16,7 @@ export const SubHeader = styled.h2`
   margin-top: 20px;
   font-size: 40px;
   @media (max-width: 850px) {
-    font-size: 25px;
-    margin-top: 5px;
+    font-size: 20px;
+    margin-top: 4px;
   }
 `;
